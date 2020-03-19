@@ -3,6 +3,8 @@ import { useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 // import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
+
+import SimpleSnackbar from "./components/layout/SimpleSnackbar";
 import TopMenuBar from "./components/layout/TopMenuBar";
 import WelcomeScreen from "./components/layout/WelcomeScreen";
 import Register from "./components/auth/Register.jsx";
@@ -23,6 +25,7 @@ function App() {
         <TopMenuBar />
         {/* <WelcomeScreen /> */}
         <Register />
+        <SimpleSnackbar />
       </Container>
     </React.Fragment>
   );

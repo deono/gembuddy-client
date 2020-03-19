@@ -40,7 +40,7 @@ function loadRegisterError(error) {
 export const registerUser = user => async dispatch => {
   dispatch(loadRegisterRequest());
   try {
-    const response = axios.post(
+    const response = await axios.post(
       "http://localhost:5000/api/users/register",
       user
     );
@@ -58,7 +58,7 @@ export const registerUser = user => async dispatch => {
     }
   } catch (error) {
     // any HTTP error is caught here
-    // can extend this implementation to customiz the error messages
+    // can extend this implementation to customize the error messages
     // ex: dispatch(loadTodoError("Sorry can't talk to our servers right now"));
     dispatch(loadRegisterError(error));
   }
