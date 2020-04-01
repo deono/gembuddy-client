@@ -10,7 +10,9 @@ import CardGiftcardIcon from "@material-ui/icons/CardGiftcard";
 
 const useStyles = makeStyles({
   root: {
-    width: "100vw"
+    width: "100vw",
+    position: "fixed",
+    bottom: 0
   }
 });
 
@@ -29,15 +31,18 @@ function SimpleBottomNavigation({ setNav }) {
     >
       <BottomNavigationAction
         label="Users"
-        icon={<PeopleIcon onClick={() => setNav("users")} />}
+        onClick={() => setNav("users")}
+        icon={<PeopleIcon />}
       />
       <BottomNavigationAction
         label="Tasks"
+        onClick={() => setNav("tasks")}
         icon={<AssignmentTurnedInIcon onClick={() => setNav("tasks")} />}
       />
       <BottomNavigationAction
         label="Rewards"
-        icon={<CardGiftcardIcon onClick={() => setNav("rewards")} />}
+        onClick={() => setNav("rewards")}
+        icon={<CardGiftcardIcon />}
       />
     </BottomNavigation>
   );
