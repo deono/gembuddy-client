@@ -9,10 +9,10 @@ import SimpleSnackbar from "./components/layout/SimpleSnackbar";
 import TopMenuBar from "./components/layout/TopMenuBar";
 import SimpleBottomNavigation from "./components/layout/SimpleBottomNavigation";
 import WelcomeScreen from "./components/layout/WelcomeScreen";
-import Users from "./components/Users/Users";
-import Tasks from "./components/Tasks/Tasks";
-import Rewards from "./components/Rewards/Rewards";
-import Register from "./components/auth/Register.jsx";
+import Users from "./components/users/Users";
+import Tasks from "./components/tasks/Tasks";
+import Rewards from "./components/rewards/Rewards";
+import ProfileContainer from "./components/profile/ProfileContainer";
 import "./App.css";
 
 function App({ view }) {
@@ -23,8 +23,8 @@ function App({ view }) {
     switch (view) {
       case "welcome":
         return <WelcomeScreen />;
-      case "register":
-        return <Register />;
+      case "profile-container":
+        return <ProfileContainer />;
       case "users":
         return <Users />;
       case "tasks":
@@ -41,8 +41,6 @@ function App({ view }) {
       <CssBaseline />
       <Container maxWidth="sm">
         <TopMenuBar />
-        {/* <WelcomeScreen /> */}
-        {/* <Register /> */}
         {renderView(view)}
         <SimpleSnackbar />
       </Container>

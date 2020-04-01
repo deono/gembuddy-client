@@ -40,7 +40,7 @@ function TopMenuBar({ setNav }) {
           </Typography>
           <IconButton
             onClick={() => {
-              setNav("register");
+              setNav("profile-container");
             }}
             color="inherit"
           >
