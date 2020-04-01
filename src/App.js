@@ -6,6 +6,7 @@ import Container from "@material-ui/core/Container";
 
 import SimpleSnackbar from "./components/layout/SimpleSnackbar";
 import TopMenuBar from "./components/layout/TopMenuBar";
+import SimpleBottomNavigation from "./components/layout/SimpleBottomNavigation";
 import WelcomeScreen from "./components/layout/WelcomeScreen";
 import Register from "./components/auth/Register.jsx";
 import "./App.css";
@@ -15,18 +16,13 @@ function App() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container
-        maxWidth="sm"
-        style={{
-          backgroundColor: theme.palette.primary.light,
-          height: "100vh"
-        }}
-      >
+      <Container maxWidth="sm">
         <TopMenuBar />
         {/* <WelcomeScreen /> */}
         <Register />
         <SimpleSnackbar />
       </Container>
+      <SimpleBottomNavigation />
     </React.Fragment>
   );
 }

@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     marginTop: theme.spacing(5),
-    padding: theme.spacing(2)
+    padding: theme.spacing(2),
+    backgroundColor: "secondary"
   },
   button: {
     marginTop: theme.spacing(1)
@@ -20,15 +21,39 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Register = ({ registerUser }) => {
-  const [firstName, setFirstname] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [firstName, setFirstname] = useState({
+    value: "",
+    error: false,
+    helperText: ""
+  });
+  const [lastName, setLastName] = useState({
+    value: "",
+    error: false,
+    helperText: ""
+  });
+  const [email, setEmail] = useState({
+    value: "",
+    error: false,
+    helperText: ""
+  });
+  const [password, setPassword] = useState({
+    value: "",
+    error: false,
+    helperText: ""
+  });
   const classes = useStyles();
 
   function handleSubmit() {
+    // TODO: form validation
     console.log("submit clicked");
-    registerUser({ firstName, lastName, email, password });
+    registerUser({
+      firstName: firstName.value,
+      lastName: lastName.value,
+      email: email.value,
+      password: password.value
+    });
+
+    // clear the form
   }
   return (
     <Paper className={classes.paper} variant="elevation">
@@ -37,44 +62,57 @@ const Register = ({ registerUser }) => {
       </Typography>
       <form>
         <TextField
+          error={firstName.error}
+          helperText={firstName.helperText}
+          value={firstName.value}
           className={classes.textField}
+          color="primary"
           variant="outlined"
           fullWidth
+          required
           label="First Name"
           type="text"
           name="firstName"
-          value={firstName}
-          onChange={event => setFirstname(event.target.value)}
+          onChange={event => setFirstname({ value: event.target.value })}
         />
         <TextField
+          error={lastName.error}
+          helperText={lastName.helperText}
+          value={lastName.value}
           className={classes.textField}
           variant="outlined"
           fullWidth
+          required
           label="Last Name"
           type="text"
           name="lastName"
-          value={lastName}
-          onChange={event => setLastName(event.target.value)}
+          onChange={event => setLastName({ value: event.target.value })}
         />
         <TextField
+          error={email.error}
+          helperText={email.helperText}
+          value={email.value}
           className={classes.textField}
           variant="outlined"
           fullWidth
+          required
           label="Email"
           type="email"
           name="email"
-          value={email}
-          onChange={event => setEmail(event.target.value)}
+          onChange={event => setEmail({ value: event.target.value })}
         />
         <TextField
+          error={password.error}
+          helperText={password.helperText}
+          value={password.value}
           className={classes.textField}
           variant="outlined"
           fullWidth
+          required
           label="Password"
           type="password"
           name="password"
-          value={password}
-          onChange={event => setPassword(event.target.value)}
+          onChange={event => setPassword({ value: event.target.value })}
         />
         <Button
           fullWidth

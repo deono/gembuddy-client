@@ -25,7 +25,7 @@ function loadRegisterSuccess(results) {
   return {
     type: GET_REGISTER_SUCCESS,
     data: results,
-    error: null
+    message: results.message
   };
 }
 
@@ -33,7 +33,7 @@ function loadRegisterError(error) {
   return {
     type: GET_REGISTER_ERROR,
     data: null,
-    error
+    message: error
   };
 }
 
@@ -44,17 +44,17 @@ export const registerUser = user => async dispatch => {
       "http://localhost:5000/api/users/register",
       user
     );
-    console.log("registerUser response", response);
-    if (response.status === "ok") {
+    console.log("registerUser response", response.data);
+    if (response.data.status === "ok") {
       // check if the internal status is ok
       // then pass on the data
-      dispatch(loadRegisterSuccess(response.data));
+      dispatch(loadRegisterSuccess(response.data.data));
     } else {
       // if internally there are errors
       // pass on the error, in a correct implementation
       // such errors should throw an HTTP 4xx or 5xx error
       // so that it directs straight to the catch block
-      dispatch(loadRegisterError(response.error));
+      dispatch(loadRegisterError(response.data.message));
     }
   } catch (error) {
     // any HTTP error is caught here

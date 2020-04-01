@@ -6,7 +6,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,18 +30,20 @@ export default function TopMenuBar() {
     <div className={classes.root}>
       <AppBar position="fixed">
         <Toolbar style={{ backgroundColor: theme.palette.primary.main }}>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography variant="h6" className={classes.title}>
             GemBuddy
           </Typography>
-          <Button color="inherit">Login</Button>
+          <IconButton color="inherit">
+            <AccountCircleIcon />
+          </IconButton>
         </Toolbar>
       </AppBar>
       <Toolbar />
