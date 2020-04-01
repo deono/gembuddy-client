@@ -23,6 +23,8 @@ function App({ view }) {
     switch (view) {
       case "welcome":
         return <WelcomeScreen />;
+      case "login":
+      case "register":
       case "profile-container":
         return <ProfileContainer />;
       case "users":

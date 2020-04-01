@@ -13,14 +13,19 @@ const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(5),
     padding: theme.spacing(2),
-    backgroundColor: "secondary"
+    backgroundColor: "secondary",
+    marginBottom: "100px"
   },
   button: {
     marginTop: theme.spacing(1)
+  },
+  link: {
+    color: "#001970",
+    textDecoration: "underline"
   }
 }));
 
-const Register = ({ registerUser }) => {
+const Register = ({ registerUser, setNav }) => {
   const [firstName, setFirstname] = useState({
     value: "",
     error: false,
@@ -57,9 +62,10 @@ const Register = ({ registerUser }) => {
   }
   return (
     <Paper className={classes.paper} variant="elevation">
-      <Typography align="center" color="primary" component="h1">
+      <Typography align="center" color="primary" variant="h4" component="h4">
         Register
       </Typography>
+
       <form>
         <TextField
           error={firstName.error}
@@ -123,6 +129,12 @@ const Register = ({ registerUser }) => {
         >
           Submit
         </Button>
+        <Typography className={classes.textField}>
+          Do you have an account?
+        </Typography>
+        <Typography className={classes.link} onClick={() => setNav("login")}>
+          Login instead.
+        </Typography>
       </form>
     </Paper>
   );
