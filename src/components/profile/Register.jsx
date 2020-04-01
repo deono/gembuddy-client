@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { connect } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, TextField, Typography, Button } from "@material-ui/core";
-
+import { setNav } from "../../actions/navActions";
 import { registerUser } from "../../actions/usersActions.js";
 
 const useStyles = makeStyles(theme => ({
@@ -13,8 +13,7 @@ const useStyles = makeStyles(theme => ({
   paper: {
     marginTop: theme.spacing(5),
     padding: theme.spacing(2),
-    backgroundColor: "secondary",
-    marginBottom: "100px"
+    backgroundColor: "secondary"
   },
   button: {
     marginTop: theme.spacing(1)
@@ -146,4 +145,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { registerUser })(Register);
+export default connect(mapStateToProps, { registerUser, setNav })(Register);

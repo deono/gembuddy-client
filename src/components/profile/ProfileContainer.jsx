@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setNav } from "../../actions/navActions";
 import Profile from "./Profile";
 import Login from "./Login";
 import Register from "./Register";
@@ -12,13 +11,13 @@ const ProfileContainer = ({ view, setNav }) => {
 
     switch (view) {
       case "login":
-        return <Login setNav={setNav} />;
+        return <Login />;
       case "register":
-        return <Register setNav={setNav} />;
+        return <Register />;
       case "profile":
         return <Profile />;
       default:
-        return <Register setNav={setNav} />;
+        return <Register />;
     }
   }
   return <div>{renderView(view)}</div>;
@@ -30,4 +29,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { setNav })(ProfileContainer);
+export default connect(mapStateToProps, {})(ProfileContainer);
