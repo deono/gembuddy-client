@@ -31,7 +31,7 @@ const SimpleSnackbar = ({ messages, setMessage, hideMessage }) => {
 
   return (
     <div>
-      <Button onClick={handleClick}>Open simple snackbar</Button>
+      {/* <Button onClick={handleClick}>Open simple snackbar</Button> */}
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",

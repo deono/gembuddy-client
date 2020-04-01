@@ -6,6 +6,7 @@
  *   "message": string,
  *   "error": string
  *  }
+ * https://www.pluralsight.com/guides/centralized-error-handing-with-react-and-redux
  */
 
 import axios from "axios";
